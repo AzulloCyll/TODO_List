@@ -195,13 +195,17 @@ function taskRemove(val) {
 
 	for (let i = 0; i < xButtons.length; i++) {
 		xButtons[i].onclick = function (event) {
-			event.target.parentElement.parentElement.parentElement.remove();
-			//aktualizacja po kliknięciu
-			titlesShowHide();
-			taskTitleShowHide();
-			showColumnsCounters(divColHeadersArray);
-			taskChangeShowhide();
-			console.log("Usunięto zadanie.");
+			if (confirm("Na pewno?") == true) {
+				event.target.parentElement.parentElement.parentElement.remove();
+				//aktualizacja po kliknięciu
+				titlesShowHide();
+				taskTitleShowHide();
+				showColumnsCounters(divColHeadersArray);
+				taskChangeShowhide();
+				console.log("Usunięto zadanie.");
+			} else {
+				console.log("Nic nie usunięto.");
+			}
 		};
 	}
 }
