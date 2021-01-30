@@ -14,6 +14,7 @@ function validateTitle(elem) {
 			warningsShowhide[1].classList.remove("hide");
 		}
 	}
+
 	elem.length < 5 || elem[0] == elem[0].toLowerCase()
 		? (valTitle = -1)
 		: (valTitle = 1); // walidacja prawidłowa

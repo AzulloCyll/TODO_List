@@ -138,6 +138,7 @@ function createTask(title, caption, status) {
 	taskTitleShowHide(); //obsluga kliknięcia tytułu zadania jako zwijanie i rozwijanie opisu
 	taskRemove(); //obsługa przycisku X
 	taskChangeShowhide();
+	hideXButtons();
 }
 
 // Obsługa wyboru statusu w formularzu. Po wkonaniu ustala zmienną status na wartości 1 - todo, 2 - in-progress, 3 - done
@@ -189,9 +190,9 @@ function titlesShowHide() {
 
 const divColHeadersArray = ["todo", "in-progress", "done"]; //nie umiem przesłać tu zmiennej
 //obsługa przycisku X
-function taskRemove() {
+function taskRemove(val) {
 	const xButtons = document.getElementsByClassName("buttonX");
-	const tasks = document.getElementsByClassName("task");
+
 	for (let i = 0; i < xButtons.length; i++) {
 		xButtons[i].onclick = function (event) {
 			event.target.parentElement.parentElement.parentElement.remove();

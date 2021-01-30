@@ -217,6 +217,8 @@ function addTask(status, valCapt, valTitle) {
 			console.log("Nie wybrany status");
 			return 0;
 		}
+
+		// tworzy zadanie
 		createTask(title, capt, status);
 	}
 	// console.log("status: ", status);
@@ -277,7 +279,11 @@ hideXButtons(); // ukrywa przyciski z kolumny ze statusem DONE
 changeFonts(); // obsluga przycisków zmiany fontów
 taskChangeShowhide(); //obsługa wysuwania menu z przyciskami do zmainy statusu
 
+/*
+//????nie działa
+//pokazuje potwierdzenie // gdzie to i jak wywołać
 function announce() {
+	const body = document.getElementsByTagName("body")[0];
 	const questionEl = document.createElement("div");
 	const questionDiv = document.createElement("div");
 	const questionDivHead = document.createElement("div");
@@ -310,4 +316,9 @@ function announce() {
 	questionDiv.append(questionContent);
 	questionDiv.append(questionYES);
 	questionDiv.append(questionNO);
+	let val = 0;
+	questionXbutton.onclick = function (event) {
+		questionEl.remove();
+	};
 }
+*/
