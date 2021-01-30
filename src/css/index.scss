@@ -521,7 +521,7 @@ h1 {
 .announce {
 	margin: 0 auto;
 	width: 50vh;
-	height: 50vh;
+	height: auto;
 	background-color: white;
 	margin-top: 25vh;
 	border-radius: 10px;
@@ -532,9 +532,9 @@ h1 {
 	color: white;
 	display: block;
 	float: left;
-	clear: both;
 	width: 100%;
 	border-radius: 10px 10px 0px 0px;
+	height: 65px;
 }
 
 .announcetitle {
@@ -554,4 +554,43 @@ h1 {
 	float: right;
 	margin-bottom: 20px;
 	width: auto;
+}
+
+.questioncontent {
+	display: block;
+	float: left;
+	height: 50px;
+	width: 100%;
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 36px;
+	padding-bottom: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.buttonyes,
+.buttonno {
+	width: auto;
+	padding: 15px 50px;
+	color: white;
+	margin-bottom: 60px;
+	cursor: pointer;
+}
+
+.buttonyes {
+	background-color: #599a2d;
+}
+
+.buttonno {
+	background-color: #05283a;
+}
+
+.buttonyes:hover {
+	background-color: #44831b;
+}
+
+.buttonno:hover {
+	background-color: #44831b;
+	background-color: #011822;
 }

@@ -277,26 +277,37 @@ hideXButtons(); // ukrywa przyciski z kolumny ze statusem DONE
 changeFonts(); // obsluga przycisków zmiany fontów
 taskChangeShowhide(); //obsługa wysuwania menu z przyciskami do zmainy statusu
 
-//
-//komunikat
-const questionEl = document.createElement("div");
-const questionDiv = document.createElement("div");
-const questionDivHead = document.createElement("div");
-const questionTitle = document.createElement("span");
-const questionXbutton = document.createElement("button");
+function announce() {
+	const questionEl = document.createElement("div");
+	const questionDiv = document.createElement("div");
+	const questionDivHead = document.createElement("div");
+	const questionTitle = document.createElement("span");
+	const questionXbutton = document.createElement("button");
+	const questionContent = document.createElement("div");
+	const questionYES = document.createElement("button");
+	const questionNO = document.createElement("button");
 
-questionEl.classList.add("opacity");
-questionDiv.classList.add("announce");
-questionDivHead.classList.add("announcehead");
-questionTitle.classList.add("announcetitle");
-questionTitle.innerHTML = "Pytanie";
-questionXbutton.innerHTML = "<i class='fas fa-times'></i>";
-questionXbutton.classList.add("buttonX-annonce");
+	questionEl.classList.add("opacity");
+	questionDiv.classList.add("announce");
+	questionDivHead.classList.add("announcehead");
+	questionTitle.classList.add("announcetitle");
+	questionTitle.innerHTML = "Pytanie";
+	questionXbutton.innerHTML = "<i class='fas fa-times'></i>";
+	questionXbutton.classList.add("buttonX-annonce");
+	questionContent.classList.add("questioncontent");
+	questionContent.innerHTML =
+		"<p>Czy na pewno chcesz<br /> wykonać operację?</p>";
+	questionYES.innerHTML = "Tak";
+	questionNO.innerHTML = "Nie";
+	questionYES.classList.add("buttonyes");
+	questionNO.classList.add("buttonno");
 
-body.prepend(questionEl);
-questionEl.append(questionDiv);
-questionDiv.append(questionDivHead);
-questionDivHead.append(questionTitle);
-questionDivHead.append(questionXbutton);
-
-questionEl.hidden = true;
+	body.prepend(questionEl);
+	questionEl.append(questionDiv);
+	questionDiv.append(questionDivHead);
+	questionDivHead.append(questionTitle);
+	questionDivHead.append(questionXbutton);
+	questionDiv.append(questionContent);
+	questionDiv.append(questionYES);
+	questionDiv.append(questionNO);
+}
