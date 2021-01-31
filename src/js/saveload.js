@@ -13,7 +13,7 @@ import {
 function loadData() {
 	const readData = data;
 
-	const objNum = Object.keys(readData).length - 2;
+	const objNum = Object.keys(readData).length - 1;
 
 	for (let i = 0; i < objNum; i++) {
 		createTask(readData[i].title, readData[i].caption, readData[i].status);
