@@ -66,6 +66,7 @@ function createTask(title, caption, status) {
 
 	position.append(taskBody);
 	taskBody.classList.add("task");
+	taskBody.dataset.status = status;
 	taskHeader.classList.add("taskheader");
 	taskTitle.classList.add("tasktitle");
 	taskTitle.innerHTML = title;
@@ -108,6 +109,11 @@ function createTask(title, caption, status) {
 	taskFooter.append(taskStatus);
 	taskFooter.append(taskChangeButton);
 	taskFooter.append(taskOpenDiv);
+
+	//przyciski zmiany statusu
+	changeToDone.dataset.changeto = 3;
+	changeToInProg.dataset.changeto = 2;
+	changeToTodo.dataset.changeto = 1;
 	taskOpenDiv.append(changeToDone);
 	taskOpenDiv.append(changeToInProg);
 	taskOpenDiv.append(changeToTodo);
@@ -190,7 +196,7 @@ function titlesShowHide() {
 
 const divColHeadersArray = ["todo", "in-progress", "done"]; //nie umiem przesłać tu zmiennej
 //obsługa przycisku X
-function taskRemove(val) {
+function taskRemove() {
 	const xButtons = document.getElementsByClassName("buttonX");
 
 	for (let i = 0; i < xButtons.length; i++) {
@@ -246,6 +252,37 @@ function taskChangeShowhide() {
 	}
 }
 
+function changeColumn() {
+	const buttons = document.getElementsByClassName("changebutton");
+	let status = 0;
+
+	for (let i = 0; i < buttons.length; i++) {
+		buttons[i].onclick = function (event) {
+			if (window.confirm("Na pewno zmienić") == true) {
+				const title = event.target.parentElement.parentElement.parentElement.getElementsByClassName(
+					"tasktitle"
+				)[0].innerHTML;
+
+				const caption = event.target.parentElement.parentElement.parentElement.getElementsByClassName(
+					"taskcaption"
+				)[0].innerHTML;
+
+				status = event.target.dataset.changeto;
+
+				createTask(title, caption, status);
+				event.target.parentElement.parentElement.parentElement.remove();
+
+				//aktualizacja DOM
+				titlesShowHide();
+				taskTitleShowHide();
+				taskChangeShowhide();
+				changeColumn();
+				showColumnsCounters(divColHeadersArray);
+			}
+		};
+	}
+}
+
 export {
 	addmenu,
 	showhide,
@@ -257,4 +294,6 @@ export {
 	taskRemove,
 	hideXButtons,
 	taskChangeShowhide,
+	changeColumn,
+	divColHeadersArray,
 };

@@ -1,5 +1,4 @@
-//????nie działa
-//pokazuje potwierdzenie // gdzie to i jak wywołać
+//?????
 
 function myAlert() {
 	const body = document.getElementsByTagName("body")[0];
@@ -51,3 +50,5 @@ function myAlert() {
 		return true;
 	};
 }
+
+export { myAlert };

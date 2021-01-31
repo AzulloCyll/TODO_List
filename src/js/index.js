@@ -13,7 +13,10 @@ import {
 	taskRemove,
 	hideXButtons,
 	taskChangeShowhide,
+	changeColumn,
 } from "./modules.js";
+
+import { saveData, loadData } from "./saveload";
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -231,48 +234,6 @@ function addTask(status, valCapt, valTitle) {
 }
 
 selectStatus(); // obsługa wyboru statusu w formularzu. Po wykonaniu ustala zmienną sttus na wartości 1 - todo, 2 - in-progress, 3 - done
-
-// testy na sztywno
-createTask("wyświetl-ukryj", "Ukrywanie/Wyświetlanie opisów zadań", "3");
-createTask("usuwanie", "Obsługa usuwania zadania", "3");
-createTask("dodawanie", "Obsługa usuwania zadania", "3");
-createTask(
-	"Komunikaty",
-	"Przed wykonaniem usuwania, dodawania, zmiany statusu zapytaj użytkownika (dowolny komunikat) czy na pewno chce wykonać daną operację.",
-	"2"
-);
-createTask(
-	"Zmiana statusu",
-	"Zmiana statusu zadania ma spowodować:<br /> - przenieść zadanie do odpowiedniej kolumny, <br />- zmienić kolor 'elementu wyróżniającego' przypisany do danego statusu.",
-	"1"
-);
-createTask(
-	"logowanie",
-	"Każda operacja powinna zapisywać/logować się w konsoli przeglądarki.",
-	"2"
-);
-createTask(
-	"zmiana liter",
-	"Dodaj 3 przycisku powiększania fontu w całej aplikacji: mały (75%), domyślny (100%), duży (150%)",
-	"3"
-);
-createTask(
-	"status w form",
-	"Dodaj ukryte pole w formularzu, gdzie będzie trzymana informacja o statusie zadania",
-	"2"
-);
-createTask("Formularz", "Pole tytuł ma być wymagane, opis nie.", "2");
-createTask(
-	"priorytety",
-	"- lista priorytetów: niski, średni, wysoki,<br />- domyślny priorytet to: średni<br />- każdy z priorytetów przedstaw za pomocą jakiejś ikonki - obrazka<br/>- dodaj możliwość zmiany priorytetu pojedynczego zadania <br /><br />Priorytety determinują kolejność zdań w kolumnach – kolejność to: wysoki, średni, niski",
-	"1"
-);
-createTask(
-	"Blokada usuwania",
-	"Dodaj możliwość usuwania zadania, ale zablokuj taką możliwość gdy zadania ma status 'DONE'",
-	"3"
-);
-
 showColumnsCounters(divColHeadersArray); // inicjowanie
 
 taskRemove(); //obsługa przycisku X
@@ -281,3 +242,15 @@ titlesShowHide(); //obsługa przycisku w menu odsłaniającego wsyzstkie opisy
 hideXButtons(); // ukrywa przyciski z kolumny ze statusem DONE
 changeFonts(); // obsluga przycisków zmiany fontów
 taskChangeShowhide(); //obsługa wysuwania menu z przyciskami do zmainy statusu
+
+// let test = myAlert(); //własne alety mi nie działąją więc późneij używam window.confirm
+// console.log(test);
+
+changeColumn(); // przesuwanie do innych statusów
+
+//save po zamknieciu okna
+window.onbeforeunload = function (event) {
+	if (true) saveData();
+};
+
+loadData();
