@@ -1,5 +1,7 @@
 //?????
 
+let response = 0;
+
 function myAlert() {
 	const body = document.getElementsByTagName("body")[0];
 	const questionEl = document.createElement("div");
@@ -35,17 +37,26 @@ function myAlert() {
 	questionDiv.append(questionYES);
 	questionDiv.append(questionNO);
 
-	questionXbutton.onclick = function (event) {
+	clickCheck();
+}
+
+function clickCheck() {
+	const questionEl = document.getElementsByClassName("opacity")[0];
+	const questionXbutton = document.getElementsByClassName("buttonX-annonce")[0];
+	const questionNO = document.getElementsByClassName("buttonno")[0];
+	const questionYES = document.getElementsByClassName("buttonyes")[0];
+
+	questionXbutton.onclick = function () {
 		questionEl.remove();
 		response = -1;
 	};
 
-	questionNO.onclick = function (event) {
+	questionNO.onclick = function () {
 		questionEl.remove();
 		response = -1;
 	};
 
-	questionYES.onclick = function (event) {
+	questionYES.onclick = function () {
 		questionEl.remove();
 		response = 1;
 	};

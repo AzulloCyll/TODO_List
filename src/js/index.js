@@ -256,6 +256,4 @@ loadData();
 // 	if (true) saveData();
 // };
 
-// let response = 0;
-// myAlert();
-// console.log(response);
+myAlert();
