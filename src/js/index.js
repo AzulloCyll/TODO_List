@@ -16,7 +16,8 @@ import {
 	changeColumn,
 } from "./modules.js";
 
-import { saveData, loadData } from "./saveload";
+import { saveData, loadData } from "./saveload.js";
+import { myAlert } from "./notworking.js";
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -242,15 +243,19 @@ titlesShowHide(); //obsługa przycisku w menu odsłaniającego wsyzstkie opisy
 hideXButtons(); // ukrywa przyciski z kolumny ze statusem DONE
 changeFonts(); // obsluga przycisków zmiany fontów
 taskChangeShowhide(); //obsługa wysuwania menu z przyciskami do zmainy statusu
-
-// let test = myAlert(); //własne alety mi nie działąją więc późneij używam window.confirm
-// console.log(test);
-
 changeColumn(); // przesuwanie do innych statusów
 
-//save po zamknieciu okna
-window.onbeforeunload = function (event) {
-	if (true) saveData();
-};
-
 loadData();
+
+//
+
+//save po zamknieciu okna
+//-----------------------
+
+// window.onbeforeunload = function (event) {
+// 	if (true) saveData();
+// };
+
+// let response = 0;
+// myAlert();
+// console.log(response);

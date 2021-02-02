@@ -37,17 +37,17 @@ function myAlert() {
 
 	questionXbutton.onclick = function (event) {
 		questionEl.remove();
-		return false;
+		response = -1;
 	};
 
 	questionNO.onclick = function (event) {
 		questionEl.remove();
-		return false;
+		response = -1;
 	};
 
 	questionYES.onclick = function (event) {
 		questionEl.remove();
-		return true;
+		response = 1;
 	};
 }
 
