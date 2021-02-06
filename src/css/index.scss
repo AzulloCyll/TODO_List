@@ -7,6 +7,10 @@
 	box-sizing: border-box;
 }
 
+:focus {
+	outline: 1px;
+}
+
 body {
 	background-image: url("../images/bg.jpg");
 	width: 100%;
@@ -426,7 +430,6 @@ h1 {
 	padding: 0;
 	font-size: 20px;
 	margin-right: 10px;
-	text-decoration: underline;
 }
 
 .taskchangebutton:hover {
