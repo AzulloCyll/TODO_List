@@ -244,7 +244,7 @@ changeFonts(); // obsluga przycisków zmiany fontów
 taskChangeShowhide(); //obsługa wysuwania menu z przyciskami do zmainy statusu
 changeColumn(); // przesuwanie do innych statusów
 
-loadData();
+loadData(); //autoload
 
 //save
 //-----------------------
@@ -252,9 +252,10 @@ const saveDiv = document.createElement("div");
 const saveButton = document.createElement("button");
 saveDiv.classList.add("savediv");
 saveButton.innerHTML = "Zapisz";
+saveButton.classList.add("savebutton");
 saveDiv.append(saveButton);
 rootSelector.append(saveDiv);
 
-// window.onbeforeunload = function (event) {
-// 	if (true) saveData();
-// };
+saveButton.onclick = function () {
+	saveData();
+};

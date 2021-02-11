@@ -607,3 +607,13 @@ h1 {
 	width: 100%;
 	clear: both;
 }
+
+.savebutton {
+	background-color: rgb(25, 143, 202);
+	color: white;
+	cursor: pointer;
+}
+
+.savebutton:hover {
+	background-color: rgb(21, 181, 230);
+}
