@@ -17,7 +17,6 @@ import {
 } from "./modules.js";
 
 import { saveData, loadData } from "./saveload.js";
-import { myAlert } from "./notworking.js";
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -247,13 +246,15 @@ changeColumn(); // przesuwanie do innych statusów
 
 loadData();
 
-//
-
-//save po zamknieciu okna
+//save
 //-----------------------
+const saveDiv = document.createElement("div");
+const saveButton = document.createElement("button");
+saveDiv.classList.add("savediv");
+saveButton.innerHTML = "Zapisz";
+saveDiv.append(saveButton);
+rootSelector.append(saveDiv);
 
 // window.onbeforeunload = function (event) {
 // 	if (true) saveData();
 // };
-
-myAlert();
