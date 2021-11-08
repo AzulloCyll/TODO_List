@@ -1,4 +1,5 @@
-import "@babel/polyfill";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 import { validateCaption, validateTitle } from "./validate.js";
 import { changeFonts } from "./setfont.js";
