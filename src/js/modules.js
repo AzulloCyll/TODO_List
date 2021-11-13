@@ -227,14 +227,12 @@ function hideXButtons() {
 
 //obsługa wusuwania menu z przyciskami do zmainy statusu
 function taskChangeShowhide() {
-	const taskChangeShowhide = document.getElementsByClassName(
-		"taskchangebutton"
-	);
+	let taskChangeShowhide = document.getElementsByClassName("taskchangebutton");
 
 	for (let i = 0; i < taskChangeShowhide.length; i++) {
 		taskChangeShowhide[i].nextSibling.classList.add("hide"); //ukrywa wszystkie na początku
 
-		const toggler = true;
+		let toggler = true;
 
 		taskChangeShowhide[i].onclick = function (event) {
 			toggler = !toggler;
@@ -259,13 +257,15 @@ function changeColumn() {
 	for (let i = 0; i < buttons.length; i++) {
 		buttons[i].onclick = function (event) {
 			if (window.confirm("Na pewno zmienić") == true) {
-				const title = event.target.parentElement.parentElement.parentElement.getElementsByClassName(
-					"tasktitle"
-				)[0].innerHTML;
+				const title =
+					event.target.parentElement.parentElement.parentElement.getElementsByClassName(
+						"tasktitle"
+					)[0].innerHTML;
 
-				const caption = event.target.parentElement.parentElement.parentElement.getElementsByClassName(
-					"taskcaption"
-				)[0].innerHTML;
+				const caption =
+					event.target.parentElement.parentElement.parentElement.getElementsByClassName(
+						"taskcaption"
+					)[0].innerHTML;
 
 				status = event.target.dataset.changeto;
 
